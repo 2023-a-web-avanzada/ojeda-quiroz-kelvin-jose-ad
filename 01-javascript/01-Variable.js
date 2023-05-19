@@ -135,3 +135,37 @@ console.log(Object.values(kelvin))
 delete kelvin.nombre
 console.log(Object.keys(kelvin))
 console.log(Object.values(kelvin))
+
+
+
+
+// Variables por valor o por referencia
+// variable por valor
+// Primitivas: Number, string, boolean
+
+let edadKelvin = 12
+let edadJose = edadKelvin
+console.log(edadKelvin) //12
+console.log(edadJose) //12
+
+edadKelvin+=1
+console.log(edadKelvin) //13
+console.log(edadJose)  //12
+
+
+//variables por referencia
+let notas = {
+    total: 10,
+}
+
+let notasSegundoBimestre = notas // igualación por referencia
+// notasSegundoBimestre.total += 1
+notas.total += 1
+console.log(notas.total) //11
+console.log(notasSegundoBimestre.total) //11
+
+let notasTercerBimestre = Object.assign({}, notas)
+notasTercerBimestre.total = notasTercerBimestre.total + 1
+console.log(notas) //11
+console.log(notasSegundoBimestre) // 11 
+console.log(notasTercerBimestre)// 12
