@@ -13,20 +13,24 @@ const arreglo = [{id: 1, nombre: 'Adrian', nota: 5}, {id: 2, nombre: 'Vicente', 
 // Funcion como parametro
 // E suna fucnion que recibe otra funcion como parametro
 
-
+console.log('Operator Find\n')
 //FIND
 // Enviarmos una expresión --> Truty or falsy
-// Devuelve el primero que cumpra esta funcion
-const repuestaFind = arreglo.find(
+// Devuelve el primero que cumpla esta funcion
+const respuestaFind = arreglo.find(
     function (valorActual, indiceActual, arregloCompleto){
         console.log('valorActual', valorActual)
         console.log('indiceActual', indiceActual)
         console.log('arregloCompleto', arregloCompleto)
-        return valorActual.nota < 8
+        return valorActual.nota <8
     }
 )
 
+console.log('Repsuesta find')
+console.log(respuestaFind)
 
+
+console.log('Find Index\n')
 // FINDINDEX
 // enviamos una expresion -> truty falsy
 // devolver el indice del primer elemento que cumpla esa condicion
@@ -34,11 +38,13 @@ const repuestaFind = arreglo.find(
 const respuestaFindIndex = arreglo
     .findIndex(
         function (valorActual) {
-            return valorActual.nota < 5; // Expresion (< =)
+            return valorActual.nota <= 5; // Expresion (< =)
         }
     );
 console.log('respuestaFindIndex', respuestaFindIndex); // Si encuentra indice, sino-1
 
+
+console.log('For each\n')
 // FOREACH
 // Iterar el arrglo
 const respuestaForEach = arreglo
@@ -49,6 +55,7 @@ const respuestaForEach = arreglo
     );
 console.log('respuestaForEach', respuestaForEach); // undefined
 
+console.log('\nOperator map')
 // MAP (Modificar o Iterar en un NUEVO arreglo)
 // enviamos los datos del nuevo arreglo
 // devuelve el nuevo arreglo
@@ -80,7 +87,7 @@ const respuestaFilter = arreglo
     );
 console.log('respuestaFilter', respuestaFilter); // [....] nuevo arreglo
 console.log('arreglo', arreglo); // [....]  arreglo
-
+//
 // SOME -> expresion
 // devuelve boolean
 // Hay alguna X que cumpla esta condicion?
@@ -88,8 +95,7 @@ console.log('arreglo', arreglo); // [....]  arreglo
 const respuestaSome = arreglo
     .some(
         function (valorActual) {
-            return valorActual.nota > 9;
-        }
+            return valorActual.nota < 0;        }
     );
 console.log('respuestaSome', respuestaSome); // true
 
@@ -131,7 +137,7 @@ const respuestaReduce = arreglo
         0 // acumulador
     );
 console.log('respuestaReduce', respuestaReduce); // true
-console.log(respuestaReduce / arreglo.length); // true
+console.log('Promedio de notas: ',respuestaReduce / arreglo.length); // true
 
 // CONCATENAR OPERADORES
 arreglo.filter( (a) => a.nota < 14)
