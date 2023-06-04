@@ -18,6 +18,7 @@ fs.readFile(
         console.log('Segundo')
         if (errorLecturaPrimerArchivo) {
             console.error("Error leyendo el archivo")
+            throw new Error('Error leyendo el archivo')
         } else {
             fs.readFile(
                 './01-Variable.js',
@@ -26,6 +27,7 @@ fs.readFile(
                     console.log("Tercero")
                     if (errorLecturaSegundoArchivo) {
                         console.error("Error leyendo el segundo archivo")
+                        throw new Error('Error leyendo el segundo archivo')
                     } else {
                         fs.writeFile(
                             './06-nuevo-archivo.txt',
@@ -33,6 +35,7 @@ fs.readFile(
                             (errorTercerArchivo, contenidoTercerArchivo) => {
                                 if(errorTercerArchivo){
                                     console.error("Error creando tercer archivo")
+                                    throw new Error('Error creando tercer archivo')
                                 }else{
                                     console.log("Sucess")
                                 }
