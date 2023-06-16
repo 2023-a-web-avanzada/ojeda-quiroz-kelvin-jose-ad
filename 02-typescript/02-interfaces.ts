@@ -27,3 +27,28 @@ type Usuario = {
     calcularImpuesto: (impuesto: number) => number;
     estadoActual?: () => 'AP' | 'AF' | 'AT'; //opcional
 }
+
+let user: Usuario = {
+    nombre: 'Adrian',
+    apellido: 'Eguez',
+    casado: 0,
+    sueldo: 11.2,
+    estado: 'AC',
+    imprimirUsuario: (mensaje) => {
+        return 'El mensaje es: ' + mensaje;
+    },
+    calcularImpuesto: impuesto => {
+        return user.sueldo + user.sueldo * impuesto;
+    },
+    estadoActual: () => {
+        switch (user.estado) {
+            case 'AC':
+                return 'AP';
+            case 'IN':
+                return 'AF';
+            case 'BN':
+                return 'AT';
+        }
+    }
+}
+console.log(user)
