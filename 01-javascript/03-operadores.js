@@ -22,7 +22,7 @@ const respuestaFind = arreglo.find(
         console.log('valorActual', valorActual)
         console.log('indiceActual', indiceActual)
         console.log('arregloCompleto', arregloCompleto)
-        return valorActual.nota <8
+        return valorActual.nota <=8
     }
 )
 
