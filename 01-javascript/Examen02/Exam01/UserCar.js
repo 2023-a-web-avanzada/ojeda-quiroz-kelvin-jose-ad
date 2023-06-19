@@ -9,10 +9,7 @@ async function eliminarPersona(idUsuario) {
         const personas = await readData();
         if (personas) {
             const personasActualizadas = personas.filter((persona) => persona.id !== idUsuario);
-
-            // Guardar los datos actualizados
             await saveDataDelete(personasActualizadas);
-
             console.log('Usuario eliminado exitosamente');
         } else {
             console.log('No se encontró el listado de usuarios usuario');
@@ -509,6 +506,7 @@ function readData() {
 }
 
 
-menuPrincipalRecursivo()
-
+export {
+    menuPrincipalRecursivo
+};
 
