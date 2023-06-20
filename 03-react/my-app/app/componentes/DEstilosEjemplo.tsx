@@ -1,5 +1,8 @@
+'use client'
 import {css} from '@emotion/react'
 import styled from '@emotion/styled'
+import cStyles from './c_estilos.module.css'
+
 
 const pinkStyle = css`
   color: hotpink;
@@ -13,6 +16,11 @@ const TituloVerde = styled.h1`
   font-size: 10px;
 `
 export default function DEstilosEjemplo() {
+    const misEstilos ={
+        color: '#fff',
+        backgroundColor: 'back',
+        borderBottom: '5px solid yellow'
+    }
     return (
         <>
             {/*<p className={*/}
@@ -23,6 +31,15 @@ export default function DEstilosEjemplo() {
             <div className={pinkStyle as unknown as string}>
                 Texto pink
             </div>
+            <p className={cStyles.rojo}>Clase rojo</p>
+            <p style={misEstilos}>Mis estilos</p>
+            <p style={
+                {
+                    color: 'back',
+                    backgroundColor: '#fff',
+                    borderBottom: '5px solid green'
+                }
+            }>Mis estilos en style</p>
         </>
     )
 }
