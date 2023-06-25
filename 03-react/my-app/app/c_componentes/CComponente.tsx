@@ -32,13 +32,19 @@ export default function CComponente(
         color
     )
 
+    const colorOtraBarra = ["yellow", "red"]
+    enum listaColores{
+        amarillo,
+        rojo
+    }
+
 
     return (
         <div className={"border border-solid border-black m-2 p-2"}>
 
             <a href={url} target="_blank">IR A URL</a>
             <p className={colorLocal}>Iteracion: {iteraciones} {iteracionLocal}</p>
-            <p>Mostrar: {mostrar}</p>
+            <p className={"bg-"+colorOtraBarra[listaColores.amarillo]+"-400 border-solid border"}>Mostrar: {mostrar}</p>
             {contenidoAdicional()}
             {/*{mostrar ?<p>Mostrar con if contraido</p>:<p>Ocultar con if contraido</p>}*/}
             {mostrar && <p>Mostrar rápido</p>}
@@ -53,6 +59,7 @@ export default function CComponente(
                     }else {
                         setColorLocal("bg-yellow-400 border-solid border")
                     }
+                    
 
                 }
             }>Imprimir evento
