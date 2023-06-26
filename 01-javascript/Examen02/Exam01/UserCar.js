@@ -14,7 +14,7 @@ async function eliminarPersona(idUsuario) {
         if (personas) {
             const personasActualizadas = personas.filter((persona) => persona.id !== idUsuario);
             await saveDataDelete(personasActualizadas);
-            console.log('Usuario eliminado exitosamente');
+            console.log('Operación realizada con exito');
         } else {
             console.log('No se encontró el listado de usuarios usuario');
         }
