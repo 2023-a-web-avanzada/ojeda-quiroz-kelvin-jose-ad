@@ -1,6 +1,6 @@
 'use client'
 import React, {useState} from "react";
-import {useForm} from "react-hook-form";
+import {Controller, useForm} from "react-hook-form";
 import {Button, FormControl, InputLabel, MenuItem, Select} from "@mui/material";
 import {FormularioEjemplo} from "@/app/i_react_hook_form/types/formulario-ejemplo";
 
@@ -41,6 +41,15 @@ export default function Page() {
                                        },
                                        maxLength: {value: 20, message: 'Longitud maxima de 20'},
                                        minLength: {value: 5, message: 'Longitud minima de 5'},
+                                       validate: {
+                                           soloNumeros: (valorActual) => {
+                                               if (Number.isNaN(+valorActual)) {
+                                                   return 'Ingrese solo numeros'
+                                               } else {
+                                                   return true
+                                               }
+                                           }
+                                       }
                                    })
                                }
                         />
@@ -59,7 +68,35 @@ export default function Page() {
                             <InputLabel id="estadoCivilLabedId">
                                 Estado Civil
                             </InputLabel>
-                            {}
+                            <Controller
+                                control={control}
+                                rules={{required: {value: true, message: 'Estado C. requerido'}}}
+                                name="estadoCivil"
+                                render={
+                                    ({field: {onChange, value, onBlur,}})=>{
+                                        return(
+                                            <>
+                                                <Select
+                                                    labelId="estadoCivilLabelId"
+                                                    id="estadoCivil"
+                                                    label={"Estado Civil"}
+                                                    onBlur={onBlur}
+                                                    value = {value}
+                                                    onChange={onChange as any}
+                                                    >
+                                                    <MenuItem value ={'casado'}>Casado</MenuItem>
+                                                    <MenuItem value ={'soltero'}>Soltero</MenuItem>
+                                                </Select>
+                                            </>
+                                        )
+                                    }
+
+                                }/>
+                            {
+                                errors.estadoCivil && <div className="alert alert-warning" role={"alert"}>
+                                    Tienes errores {errors.estadoCivil.message}
+                                </div>
+                            }
                         </FormControl>
                     </div>
                     <Button
